@@ -261,6 +261,7 @@ spec:
                 - "--leader-election-id=kiali-operator"
                 - "--watches-file=./$(WATCHES_FILE)"
                 - "--health-probe-bind-address=:6789"
+                - "--metrics-bind-address=:8080"
                 terminationMessagePolicy: FallbackToLogsOnError
                 readinessProbe:
                   httpGet:
@@ -334,13 +335,17 @@ spec:
                 - name: WATCHES_FILE
                   value: "watches-os.yaml"
                 - name: RELATED_IMAGE_kiali_default
-                  value: "${KIALI_1_73}"
+                  value: "${KIALI_2_3}"
+                - name: RELATED_IMAGE_kiali_v2_3
+                  value: "${KIALI_2_3}"
                 - name: RELATED_IMAGE_kiali_v1_73
                   value: "${KIALI_1_73}"
                 - name: RELATED_IMAGE_kiali_v1_65
-                  value: "${KIALI_1_65}"                
+                  value: "${KIALI_1_65}"
                 - name: RELATED_IMAGE_ossmconsole_default
-                  value: "${OSSMCONSOLE_1_73}"
+                  value: "${OSSMCONSOLE_2_3}"
+                - name: RELATED_IMAGE_ossmconsole_v2_3
+                  value: "${OSSMCONSOLE_2_3}"
                 - name: RELATED_IMAGE_ossmconsole_v1_73
                   value: "${OSSMCONSOLE_1_73}"
                 ports:
